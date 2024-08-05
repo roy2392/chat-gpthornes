@@ -18,7 +18,7 @@ MATCH (h:House)<-[r:MEMBER_OF]-(c:Character)
 WHERE h.name IN ['Stark', 'Lannister', 'Targaryen']
 RETURN h, c, r
 ```
-![Knowledge Graph Visualization](examples/got_graph_visualization.png)
+![Knowledge Graph Visualization](examples/bloom-visualisation.png)
 
 An example of the chat-bot's response in the Streamlit interface:
 ![Chatbot Interface](examples/got_chatbot.png)
