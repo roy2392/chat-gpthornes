@@ -1,13 +1,29 @@
-DELETE_QUERIES = [
-        "MATCH (:Food)-[r:CAN_PREVENT]->(:Food) DELETE r",
-        "MATCH (:Food)-[r:CAN_PREVENT]->(n:`Body organ`) DELETE r",
-        "MATCH (:Food)-[r:CONTAINS]->(:Body organ) DELETE r",
-        "MATCH (:Physical activity)-[r:CONTAINS]->(:Microbiological component) DELETE r",
-        "MATCH (:Food)-[r:CAN_PREVENT]->(:Micro organisem) DELETE r"
-    ]
+# config.py for Game of Thrones Neo4j Chatbot
 
-ALLOWED_NODES =['food', 'nutritional supplement','nutritional value','microbiological component', 'drug', 'medical procedure',
-                                'body organ', 'disease', 'physical activity','micro organisem']
-ALLOWED_RELETIONSHIPS =['CONTAINS', 'ARE_KIND_OF','CAN_LEAD_TO', 'CAN_PREVENT','CAN_REDUCE','REQUIRED_FOR']
-RELETIONSHIPS_PROPERTIES =['Grounding_text','effect_mechanism','cost','The_intensity_of_the_effect','Life extension/shortening period']
-NODES_PROPERTIES = ['amount_required','group','cost','amount']
+DELETE_QUERIES = [
+    "MATCH (:Character)-[r:ALLIED_WITH]->(:House) DELETE r",
+    "MATCH (:Character)-[r:MEMBER_OF]->(:House) DELETE r",
+    "MATCH (:Location)-[r:PART_OF]->(:Region) DELETE r",
+    "MATCH (:Character)-[r:RULES]->(:Location) DELETE r",
+    "MATCH (:Character)-[r:OWNS]->(:Item) DELETE r"
+]
+
+ALLOWED_NODES = [
+    'Character', 'House', 'Location', 'Region', 'Item', 'Event', 
+    'Creature', 'Organization', 'Weapon', 'Title'
+]
+
+ALLOWED_RELATIONSHIPS = [
+    'ALLIED_WITH', 'MEMBER_OF', 'PART_OF', 'RULES', 'OWNS',
+    'PARTICIPATED_IN', 'KILLED', 'PARENT_OF', 'MARRIED_TO',
+    'SWORN_TO', 'LOCATED_IN', 'WIELDS', 'HOLDS_TITLE'
+]
+
+RELATIONSHIP_PROPERTIES = [
+    'start_date', 'end_date', 'strength', 'type', 'details'
+]
+
+NODE_PROPERTIES = [
+    'name', 'birth_date', 'death_date', 'gender', 'description',
+    'allegiance', 'culture', 'titles', 'aliases'
+]
